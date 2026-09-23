@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="absolute right-[5%] top-2/3 h-[420px] w-[420px] rounded-full bg-cyan/[0.05] blur-[130px]" aria-hidden="true" />
 
       <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-8">
-        <div>
+        <div className="min-w-0">
           <Reveal>
             <p className="mb-5 inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-accent-soft">
               {profile.eyebrow}

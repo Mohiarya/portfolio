@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "./BrandIcons";
 import BrowserMockup from "./BrowserMockup";
+import MealFinderWidget from "./MealFinderWidget";
 
 export default function FeaturedProject({ project, onOpen }) {
   return (
@@ -10,7 +11,7 @@ export default function FeaturedProject({ project, onOpen }) {
       <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-cyan/[0.06] blur-[110px]" />
 
       <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">
             {project.index} / Featured Project
           </p>
@@ -55,10 +56,14 @@ export default function FeaturedProject({ project, onOpen }) {
         </div>
 
         <div
-          className="cursor-pointer transition-transform duration-500 group-hover:scale-[1.02]"
+          className="min-w-0 cursor-pointer transition-transform duration-500 group-hover:scale-[1.02]"
           onClick={() => onOpen(project)}
         >
-          <BrowserMockup title={project.title} src={project.screenshot} />
+          {project.id === "meal-finder" ? (
+            <MealFinderWidget />
+          ) : (
+            <BrowserMockup title={project.title} src={project.screenshot} />
+          )}
         </div>
       </div>
 

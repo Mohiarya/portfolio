@@ -10,11 +10,11 @@ export default function ProjectCard({ project, reverse = false, onOpen }) {
         reverse ? "lg:[&>*:first-child]:order-2" : ""
       }`}
     >
-      <div className="cursor-pointer transition-transform duration-500 group-hover:scale-[1.02]" onClick={() => onOpen(project)}>
+      <div className="min-w-0 cursor-pointer transition-transform duration-500 group-hover:scale-[1.02]" onClick={() => onOpen(project)}>
         <BrowserMockup title={project.title} src={project.screenshot} />
       </div>
 
-      <div>
+      <div className="min-w-0">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">
           {project.index} / Project
         </p>
