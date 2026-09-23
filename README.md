@@ -1,6 +1,6 @@
 # Portfolio
 
-**Live site:** [portfolio-xi-six-x1h1rr8ajb.vercel.app](https://portfolio-xi-six-x1h1rr8ajb.vercel.app)
+**Live site:** [mohiarya-portfolio.vercel.app](https://mohiarya-portfolio.vercel.app)
 
 Personal software engineering portfolio — a dark, celestial-themed single-page site with an interactive technology-network hero visual, project showcase, skills, and contact form.
 
