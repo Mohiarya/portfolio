@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base — "Deep Space" palette: dark navy/space backgrounds dominate
+     (~70% of the page), violet/cyan are accents, not a glow-everywhere
+     theme. */
+  --color-void: #070b1a; /* Deep Space — primary page background */
+  --color-navy-950: #0d1328; /* Midnight Navy — section transitions */
+  --color-navy-900: #0f1730; /* between Midnight Navy and Cosmic Blue */
+  --color-navy-800: #121a35; /* Cosmic Blue — cards / glass surfaces */
+  --color-navy-700: #1a2340; /* slightly lighter surface, sparing use */
+  --color-navy-600: #202b4d;
+  --color-border: #26304d; /* Cosmic Line */
+
+  /* Accents — Electric Violet is primary; Aurora Cyan is used sparingly
+     (secondary highlights, orbital details); Nebula Lavender is the soft/
+     secondary text-level accent. */
+  --color-accent: #8b5cf6; /* Electric Violet */
+  --color-accent-soft: #c4b5fd; /* Nebula Lavender */
+  --color-accent-dim: #4c3f91; /* muted violet, subtle borders/hover */
+  --color-cyan: #22d3ee; /* Aurora Cyan */
+  --color-cyan-dim: #0e7490;
+
+  /* Text */
+  --color-ink-100: #f8fafc; /* Starlight — headings / primary content */
+  --color-ink-300: #a7b0c0; /* Moonlight — descriptions / body */
+  --color-ink-500: #7c879c; /* dimmer labels / meta */
+  --color-ink-700: #4a5570; /* faint / placeholder text */
+
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --animate-drift: drift 60s linear infinite;
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-orbit-slow: orbit 40s linear infinite;
+  --animate-orbit-slower: orbit 64s linear infinite reverse;
+  --animate-float-a: float-a 7s ease-in-out infinite alternate;
+  --animate-float-b: float-b 9s ease-in-out infinite alternate;
+  --animate-float-c: float-c 8s ease-in-out infinite alternate;
+  --animate-pulse-line: pulse-line 5s ease-in-out infinite;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1200px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Constellation motion — small, slow, elegant. Three float variants give
+   nodes gentle independent-feeling drift without needing a unique
+   keyframe per node. */
+@keyframes float-a {
+  from { transform: translate(0, 0); }
+  to { transform: translate(3px, -4px); }
+}
+@keyframes float-b {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-4px, 3px); }
+}
+@keyframes float-c {
+  from { transform: translate(0, 0); }
+  to { transform: translate(3px, 3px); }
+}
+@keyframes pulse-line {
+  0%, 100% { stroke-opacity: 0.22; }
+  50% { stroke-opacity: 0.5; }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-void);
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* Very faint fixed grid — a celestial detail that rewards closer
+     inspection without competing with content. */
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-ink-100) 3%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-ink-100) 3%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+::selection {
+  background: var(--color-accent-dim);
+  color: var(--color-ink-100);
+}
+
+/* Reduced motion: kill decorative animation, keep instant state changes */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass {
+  background: color-mix(in srgb, var(--color-navy-800) 55%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+}
+
+/* Gradient utilities — used sparingly per the design spec: CTAs, the
+   featured project's accent, orbital visuals, and highlighted text only. */
+.grad-primary {
+  background-image: linear-gradient(135deg, var(--color-accent), #6366f1);
+}
+
+.grad-celestial {
+  background-image: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
+}
+
+.text-grad-celestial {
+  background-image: linear-gradient(135deg, var(--color-accent-soft), var(--color-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
