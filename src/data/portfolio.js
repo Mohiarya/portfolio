@@ -47,7 +47,7 @@ export const about = {
 export const skillGroups = [
   {
     category: "Languages",
-    skills: ["Python", "Java", "C", "JavaScript", "SQL"],
+    skills: ["Python", "Java", "JavaScript", "SQL"],
   },
   {
     category: "Frontend",
@@ -67,7 +67,7 @@ export const skillGroups = [
   },
   {
     category: "AI/ML",
-    skills: ["TensorFlow/Keras", "OpenCV", "OpenAI API", "Gemini API"],
+    skills: ["TensorFlow/Keras", "OpenCV", "Gemini API"],
   },
 ];
 
@@ -78,7 +78,7 @@ export const projects = [
     id: "meal-finder",
     index: "01",
     featured: true,
-    title: "Meal Finder",
+    title: "Meal Finder & Planner",
     type: "Full-Stack Web Application",
     tech: ["React", "Vite", "Node.js", "Express.js", "PostgreSQL", "Prisma", "JWT", "Spoonacular API"],
     description:
@@ -166,7 +166,7 @@ export const projects = [
     id: "deepfake-detector",
     index: "04",
     featured: false,
-    title: "AI Deepfake Detector",
+    title: "Deepfake Forensics Lab",
     type: "Full-Stack AI Application",
     tech: ["Python", "FastAPI", "OpenCV", "TensorFlow/Keras", "React"],
     description:
